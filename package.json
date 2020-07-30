@@ -1,0 +1,12 @@
+{
+  "name": "dialog",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": "git+ssh://git@github.com/precisely/dialog.git",
+  "author": "Aneil Mallavarapu <aneilmallavar@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  }
+}
