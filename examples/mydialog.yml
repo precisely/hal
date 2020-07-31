@@ -1,0 +1,71 @@
+topLevel: true
+inputs:
+  height:
+    type: number
+    required: true
+  weight:
+    type: number
+    required: true
+  username:
+    type: string
+    required: true
+requires:
+  - ChronicKidneyDisease
+  - Profile
+do:
+  - chat:
+    - Hi {{username}}, this example will show you how the Precisely chat system works.
+    - I'm going to ask you a few different types of questions about your health to help assess your risk of heart disease.
+  - type: list
+    key: favoriteColor
+    formTitle: Favorite Color
+    editable: false
+    choices:
+    - text: red # implicitly, value="red", unless value is provided explicitly
+      leftIcon: redCircle.png
+      do:
+        chat: Flashy!
+    - text: blue
+      icon: blueCircle.png
+      do:
+        - chat: Very good... which of these shades is your favorite?
+        - type: list
+          key: favoriteBlue
+          editable: false
+          choices:
+            - text: cyan
+              icon: cyanCircle.png
+            - text: powder blue # name of this item will be powderBlue
+              icon: powderBlue.png
+              do:
+                - queue: FavoriteMusicDialog # push "FavoriteMusicDialog" onto the array stored in the "queue" key result
+                - chat: Hey great that you picked powderBlue, that's my favorite too!
+  - Reply type choices are presented as simple circle-edged rectangles with text.
+  - type: reply
+    key: simpleChoice
+    choices: ["yes", "no", "don't know"]
+  - If type is not provided, an instruction with a choices block is assumed to be of type reply
+  - key: simpleChoice2
+    choices:
+      yes: # this is the value that would be stored
+        text: "Yes!" # this is the button text
+        do: Thanks for saying yes!
+      no: # do nothing, "no" will be the button text
+      don't know: ok, let me explain. This is a simple choice!
+  - start: SymptomDialog
+    key: symptoms
+  - chat:
+    - Ok, thanks for telling me about your color preferences
+    - What is your birthday?
+  - type: datePicker
+    title: Your birthday
+  - if: weight>height*10 && answers.favoriteColor==="blue" || answers.symptoms.contains("fever")
+    then:
+      - start: GymMembershipDialog
+        uniqueAnswer: true
+    elif:
+      -
+    else:
+      -
+    missing:
+      - null pointer exception in if caught here

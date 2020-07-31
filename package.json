@@ -7,6 +7,17 @@
   "author": "Aneil Mallavarapu <aneilmallavar@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "delete-ts-auto-guards": "find src -name '*.guard.ts' -exec rm {} \\;",
+    "build": "yarn run delete-ts-auto-guards && ts-auto-guard && tsc"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.158",
+    "js-yaml": "^3.14.0",
+    "lodash": "^4.17.19",
+    "ts-auto-guard": "file:../ts-auto-guard"
+  },
+  "devDependencies": {
+    "ts-node": "^8.10.2",
+    "typescript-json-schema": "^0.42.0"
   }
 }
