@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
     "declaration": true,
     "strict": true,
     "removeComments": true,
+    "lib": [ "es2017" ],
     "outDir": "./lib",
-    "paths": {
-      "~/*": ["./*"]
-    },
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": [
+      "node_modules/@types",
+      "types"
+    ],
+    "baseUrl": "src"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "include": ["src/**/*", "index.ts", "types/global.d.ts"],
+  "exclude": ["node_modules/"]
 }
