@@ -48,9 +48,12 @@
       "js"
     ],
     "modulePaths": [
-      "src", "node_modules"
+      "src",
+      "node_modules"
     ],
-    "setupFilesAfterEnv": ["jest-extended"],
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ],
     "transform": {
       "^.+\\.ts?$": "ts-jest"
     },

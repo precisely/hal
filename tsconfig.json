@@ -9,8 +9,13 @@
       "node_modules/@types",
       "types"
     ],
-    "baseUrl": "src"
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"]
+    }
   },
   "include": ["src/**/*", "index.ts", "types/global.d.ts"],
-  "exclude": ["node_modules/"]
+  "exclude": ["node_modules/", "tests"]
 }
