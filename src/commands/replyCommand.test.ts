@@ -28,6 +28,24 @@ describe('ReplyCommand', function () {
       expect(command?.choices).toSatisfyAll(item => item instanceof ReplyChoice);
       expect(command?.choices[0]).toMatchObject({ text: 'foo', value: 'foo'});
       expect(command?.choices[1]).toMatchObject({ text: 'bar', value: 'bar'});
-    })
+    });
+
+    it('should return a ReplyCommand with different text and value given the correct input', function () {
+      const command = ReplyCommand.make({
+        type: 'reply',
+        choices: {
+          foo: {
+            text: 'Foo!!'
+          },
+          bar: {
+            text: 'Bar!!'
+          }
+        }
+      });
+      expect(command).toBeInstanceOf(ReplyCommand);
+      expect(command?.choices).toSatisfyAll(item => item instanceof ReplyChoice);
+      expect(command?.choices[0]).toMatchObject({ text: 'Foo!!', value: 'foo'});
+      expect(command?.choices[1]).toMatchObject({ text: 'Bar!!', value: 'bar'});
+    });
   });
 });

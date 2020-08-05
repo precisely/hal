@@ -12,17 +12,20 @@
   },
   "dependencies": {
     "js-yaml": "^3.14.0",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.19",
+    "readline-sync": "^1.4.10"
   },
   "devDependencies": {
     "@types/jest": "^26.0.8",
     "@types/jest-in-case": "^1.0.2",
     "@types/js-yaml": "^3.12.5",
     "@types/lodash": "^4.14.158",
+    "@types/readline-sync": "^1.4.3",
     "jest": "^26.2.2",
     "jest-extended": "^0.11.5",
     "ts-jest": "^26.1.4",
     "ts-node": "^8.10.2",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.9.7"
   },
   "jest": {
