@@ -1,19 +1,29 @@
-do:
-  - "hello"
-  - "I'm HAL"
-  - "Would you like to proceed?"
-  - choices:
-      yes:
-        - Great! Let's continue
-        - What is your favorite color?
-        - choices:
-            red:
-              the royal color
-            green:
-              the color of trees
-            blue:
-              the color of the sea
-      no:
-        Oh well!
-  - ok, I'm all done asking questions.
-  - thanks for stopping by!
+- proc: Foo
+
+  params:
+  do:
+    - "hello"
+    - "I'm HAL"
+    - "Would you like to proceed?"
+    - set:
+        - Profile
+        - load: Profile
+    - saveData:
+        - Profile
+        - Heart
+        - Foo
+    - choices:
+        yes:
+          - Great! Let's continue
+          - What is your favorite color?
+          - choices:
+              red:
+                the royal color
+              green:
+                the color of trees
+              blue:
+                the color of the sea
+        no:
+          Oh well!
+    - ok, I'm all done asking questions.
+    - thanks for stopping by!
